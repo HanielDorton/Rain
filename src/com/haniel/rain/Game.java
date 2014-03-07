@@ -33,8 +33,7 @@ public class Game extends Canvas implements Runnable{
 	
 	public Game() {
 		Dimension size = new Dimension(width*scale, height*scale);
-		setPreferredSize(size);
-		
+		setPreferredSize(size);		
 		screen = new Screen(width, height);
 		
 		frame = new JFrame();
@@ -72,7 +71,7 @@ public class Game extends Canvas implements Runnable{
 			createBufferStrategy(3);
 			return;
 		}
-		
+		screen.clear();
 		screen.render();
 		
 		for (int i = 0; i< pixels.length; i++) {
