@@ -11,6 +11,7 @@ import java.awt.image.DataBufferInt;
 import javax.swing.JFrame;
 
 import com.haniel.rain.graphics.Screen;
+import com.haniel.rain.input.Keyboard;
 
 public class Game extends Canvas implements Runnable{
 	
@@ -25,6 +26,7 @@ public class Game extends Canvas implements Runnable{
 	
 	private Thread thread;
 	private JFrame frame;
+	private Keyboard key;
 	private boolean running = false;
 	
 	private Screen screen;
@@ -35,10 +37,12 @@ public class Game extends Canvas implements Runnable{
 	public Game() {
 		Dimension size = new Dimension(width*scale, height*scale);
 		setPreferredSize(size);		
-		screen = new Screen(width, height);
 		
+		screen = new Screen(width, height);
 		frame = new JFrame();
 		
+		key = new Keyboard();
+		addKeyListener(key);		
 	}
 	
 	public synchronized void start() {
@@ -86,8 +90,13 @@ public class Game extends Canvas implements Runnable{
 		}
 		stop();
 	}
+	
+	int x = 0, y = 0;
+	
 	public void update(){
-		
+		key.update();
+		x++;
+		y++;
 	}
 	
 	public void render() {
@@ -97,7 +106,7 @@ public class Game extends Canvas implements Runnable{
 			return;
 		}
 		screen.clear();
-		screen.render();
+		screen.render(x, y);
 		
 		for (int i = 0; i< pixels.length; i++) {
 			pixels[i] = screen.pixels[i];
