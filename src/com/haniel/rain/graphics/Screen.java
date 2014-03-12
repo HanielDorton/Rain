@@ -11,6 +11,7 @@ public class Screen {
 	
 	public int[] tiles = new int[MAP_SIZE * MAP_SIZE];
 	
+	
 	private Random random = new Random();
 	
 	public Screen(int width, int height) {
@@ -37,8 +38,7 @@ public class Screen {
 			for (int x = 0; x < width; x++){
 				int xx = x;
 				if (xx < 0 || xx >= width) break;;
-				int tileIndex = ((xx + xOffset>> 4)  & MAP_SIZE_MASK) + ((yy + yOffset>> 4) & MAP_SIZE_MASK) * MAP_SIZE; //bitwise operator (shifting right) instead of dividing by 16 to save cpu
-				pixels[xx+yy*width] = tiles[tileIndex];
+				pixels[xx+yy*width] = Sprite.grass.pixels[(x&15)+(y&15)*Sprite.grass.SIZE];
 			}
 		}
 	
