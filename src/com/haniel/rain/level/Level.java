@@ -1,5 +1,7 @@
 package com.haniel.rain.level;
 
+import com.haniel.rain.graphics.Screen;
+
 public class Level {
 	
 	protected int width, height;
