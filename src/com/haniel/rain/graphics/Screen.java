@@ -2,6 +2,8 @@ package com.haniel.rain.graphics;
 
 import java.util.Random;
 
+import com.haniel.rain.level.tile.Tile;
+
 public class Screen {
 	
 	private int width, height;
@@ -43,4 +45,13 @@ public class Screen {
 		}
 	
 	}
+	
+	public void renderTile(int xp, int yp, Tile tile) {
+		for (int y = 0; y < tile.sprite.SIZE; y++) {
+			int ya = y + yp;
+		}
+	}
+	
+	
+	
 }
