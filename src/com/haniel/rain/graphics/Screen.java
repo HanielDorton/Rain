@@ -10,7 +10,7 @@ public class Screen {
 	public int[] pixels;
 	public final int MAP_SIZE = 64;
 	public final int MAP_SIZE_MASK = MAP_SIZE - 1;
-	
+	public int xOffset, yOffset;
 	public int[] tiles = new int[MAP_SIZE * MAP_SIZE];
 	
 	
@@ -47,6 +47,8 @@ public class Screen {
 	}
 	
 	public void renderTile(int xp, int yp, Tile tile) {
+		xp -= xOffset;
+		yp -= yOffset;
 		for (int y = 0; y < tile.sprite.SIZE; y++) {
 			int ya = y + yp;
 			for (int x = 0;x < tile.sprite.SIZE; x++) {
@@ -55,6 +57,11 @@ public class Screen {
 				pixels[xa + ya * width] = tile.sprite.pixels[x + y * tile.sprite.SIZE];
 			}
 		}
+	}
+	
+	public void setOffset(int xOffset, int yOffset) {
+		this.xOffset = xOffset;
+		this.yOffset = yOffset;		
 	}
 	
 	
