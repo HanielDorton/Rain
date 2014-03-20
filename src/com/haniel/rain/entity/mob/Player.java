@@ -18,10 +18,13 @@ public class Player extends Mob {
 	}
 	
 	public void update() {
-		if (input.up) y--;
-		if (input.down) y++;
-		if (input.left) x--;
-		if (input.right) x++;
+		int xa = 0, ya = 0;
+		if (input.up) ya--;
+		if (input.down) ya++;
+		if (input.left) xa--;
+		if (input.right) xa++;
+		
+		if (xa != 0 || ya != 0) move (xa, ya);
 	}
 	
 	public void render() {
