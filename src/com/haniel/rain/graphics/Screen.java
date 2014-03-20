@@ -33,8 +33,6 @@ public class Screen {
 		}
 	}
 	
-
-	
 	public void renderTile(int xp, int yp, Tile tile) {
 		xp -= xOffset;
 		yp -= yOffset;
