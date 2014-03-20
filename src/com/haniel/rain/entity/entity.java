@@ -5,7 +5,7 @@ import java.util.Random;
 import com.haniel.rain.graphics.Screen;
 import com.haniel.rain.level.Level;
 
-public abstract class entity {
+public abstract class Entity {
 	
 	public int x, y;
 	private boolean removed = false;
