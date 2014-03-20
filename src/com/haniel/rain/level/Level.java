@@ -41,6 +41,13 @@ public class Level {
 		int x1 = (xScroll  + screen.width) >> 4;
 		int y0 = yScroll >> 4;
 		int y1 = (yScroll + screen.height) >> 4;
+		
+		for (int y = y0; y < y1; y++) {
+			for (int x = x0; x < x1; x++) {
+				getTile(x, y).render(x, y, screen);
+				
+			}
+		}
 	}
 	
 	public Tile getTile(int x, int y) {
