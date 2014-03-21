@@ -1,5 +1,7 @@
 package com.haniel.rain.entity.mob;
 
+import com.haniel.rain.graphics.Screen;
+import com.haniel.rain.graphics.Sprite;
 import com.haniel.rain.input.Keyboard;
 
 public class Player extends Mob {
@@ -27,6 +29,7 @@ public class Player extends Mob {
 		if (xa != 0 || ya != 0) move (xa, ya);
 	}
 	
-	public void render() {
+	public void render(Screen screen) {
+		screen.renderPlayer(x, y, Sprite.player0);
 	}
 }
