@@ -7,9 +7,12 @@ import com.haniel.rain.input.Keyboard;
 public class Player extends Mob {
 
 	private Keyboard input;
+	private Sprite sprite;
+	
 	
 	public Player (Keyboard input) {
 		this.input = input;
+		sprite = Sprite.player_forward;
 	}
 
 	
@@ -30,6 +33,10 @@ public class Player extends Mob {
 	}
 	
 	public void render(Screen screen) {
-		screen.renderPlayer(x-16, y-16, Sprite.player);
+		if (dir == 0) sprite = Sprite.player_forward;
+		if (dir == 1) sprite = Sprite.player_right;
+		if (dir == 2) sprite = Sprite.player_backward;
+		if (dir == 3) sprite = Sprite.player_left;
+		screen.renderPlayer(x-16, y-16, sprite);
 	}
 }
