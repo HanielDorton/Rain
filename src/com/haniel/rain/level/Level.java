@@ -5,8 +5,9 @@ import com.haniel.rain.level.tile.Tile;
 
 public class Level {
 	
+	protected Tile[] tiles;
 	protected int width, height;
-	protected int[] tiles;
+	protected int[] tilesint;
 	
 	public Level(int width, int height) {
 		this.width = width;
@@ -20,7 +21,6 @@ public class Level {
 	}
 	
 	protected void generateLevel() {
-		
 	}
 	
 	protected void loadLevel(String path) {
@@ -43,17 +43,18 @@ public class Level {
 		
 		for (int y = y0; y < y1; y++) {
 			for (int x = x0; x < x1; x++) {
-				getTile(x, y).render(x, y, screen);
+				//getTile(x, y).render(x, y, screen);
+				if (x < 0 || y < 0 || x >= width || y >= height) Tile.voidTile.render(x, y, screen);
+				else tiles[x + y * 16].render(x, y, screen);
 				
 			}
 		}
 	}
 	
 	public Tile getTile(int x, int y) {
-		if (x < 0 || y < 0 || x >= width || y >= height) return Tile.voidTile;
-		if (tiles[x + y * width] == 0) return Tile.grass;
-		if (tiles[x + y * width] == 1) return Tile.flower;
-		if (tiles[x + y * width] == 2) return Tile.rock;
+		if (tilesint[x + y * width] == 0) return Tile.grass;
+		if (tilesint[x + y * width] == 1) return Tile.flower;
+		if (tilesint[x + y * width] == 2) return Tile.rock;
 		return Tile.voidTile;
 	}
 }
