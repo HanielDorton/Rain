@@ -23,8 +23,7 @@ public class Level {
 		
 	}
 	
-	private void loadLevel(String Path) {
-		
+	protected void loadLevel(String path) {
 	}
 	
 	public void update() {
