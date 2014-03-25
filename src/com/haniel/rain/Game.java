@@ -16,6 +16,7 @@ import com.haniel.rain.input.Keyboard;
 import com.haniel.rain.level.Level;
 import com.haniel.rain.level.RandomLevel;
 import com.haniel.rain.level.SpawnLevel;
+import com.haniel.rain.level.TileCoordinate;
 
 public class Game extends Canvas implements Runnable{
 	
@@ -48,7 +49,8 @@ public class Game extends Canvas implements Runnable{
 		frame = new JFrame();
 		key = new Keyboard();
 		level = Level.spawn;
-		player = new Player(16 * 6, 16 * 4, key);
+		TileCoordinate player_spawn = new TileCoordinate(23, 62);
+		player = new Player(player_spawn.x(), player_spawn.y(), key);
 		addKeyListener(key);		
 	}
 	
