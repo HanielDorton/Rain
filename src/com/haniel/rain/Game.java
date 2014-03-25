@@ -51,6 +51,7 @@ public class Game extends Canvas implements Runnable{
 		level = Level.spawn;
 		TileCoordinate player_spawn = new TileCoordinate(23, 62);
 		player = new Player(player_spawn.x(), player_spawn.y(), key);
+		player.init(level);
 		addKeyListener(key);		
 	}
 	
