@@ -3,6 +3,7 @@ package com.haniel.rain.entity.mob;
 import com.haniel.rain.graphics.Screen;
 import com.haniel.rain.graphics.Sprite;
 import com.haniel.rain.input.Keyboard;
+import com.haniel.rain.input.Mouse;
 
 public class Player extends Mob {
 
@@ -33,14 +34,25 @@ public class Player extends Mob {
 		if (input.down) ya++;
 		if (input.left) xa--;
 		if (input.right) xa++;
-		
 		if (xa != 0 || ya != 0) {
 			move (xa, ya);
 			walking = true;
 		} else {
 			walking = false;
 		}
+		
+		updateShooting();
+		
 	}
+	
+	public void updateShooting() {
+		if (Mouse.getButton() == 1) {
+			double dx = Mouse.getX() - 300/2;
+			double dy = Mouse.getY() - 168/2;
+			double dir = Math.atan2(dy, dx);
+			shoot(x, y, dir);	}
+	}
+	
 	
 	public void render(Screen screen) {
 		int flip = 0;
