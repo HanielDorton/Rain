@@ -16,8 +16,6 @@ import com.haniel.rain.graphics.Screen;
 import com.haniel.rain.input.Keyboard;
 import com.haniel.rain.input.Mouse;
 import com.haniel.rain.level.Level;
-import com.haniel.rain.level.RandomLevel;
-import com.haniel.rain.level.SpawnLevel;
 import com.haniel.rain.level.TileCoordinate;
 
 public class Game extends Canvas implements Runnable{
@@ -119,6 +117,7 @@ public class Game extends Canvas implements Runnable{
 	public void update(){
 		key.update();
 		player.update();
+		level.update();
 	}
 	
 	public void render() {

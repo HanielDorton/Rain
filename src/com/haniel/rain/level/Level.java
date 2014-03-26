@@ -1,5 +1,9 @@
 package com.haniel.rain.level;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.haniel.rain.entity.Entity;
 import com.haniel.rain.graphics.Screen;
 import com.haniel.rain.level.tile.Tile;
 
@@ -8,6 +12,9 @@ public class Level {
 	protected int width, height;
 	protected int[] tilesint;
 	protected int tiles[];
+	protected int tile_size;
+	
+	private List<Entity> entities = new ArrayList<Entity>();
 	
 	public static Level spawn = new SpawnLevel("/levels/spawn.png");
 	
@@ -30,7 +37,9 @@ public class Level {
 	}
 	
 	public void update() {
-		
+		for (int i = 0; i < entities.size(); i++) {
+			entities.get(i).update();
+		}
 	}
 	
 	private void time() {
@@ -49,7 +58,17 @@ public class Level {
 				
 			}
 		}
+		for (int i = 0; i < entities.size(); i++) {
+			entities.get(i).render(screen);
+		}
 	}
+	
+	public void add(Entity e) {
+		entities.add(e);
+	}
+	
+	
+	
 	// Grass = 0xFF00FF00
 	// Flower = 0xFFFFFF00
 	// Rock = 0xFF7F7F00
