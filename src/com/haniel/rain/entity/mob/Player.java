@@ -2,6 +2,7 @@ package com.haniel.rain.entity.mob;
 
 import com.haniel.rain.Game;
 import com.haniel.rain.entity.projectile.Projectile;
+import com.haniel.rain.entity.projectile.WizardProjectile;
 import com.haniel.rain.graphics.Screen;
 import com.haniel.rain.graphics.Sprite;
 import com.haniel.rain.input.Keyboard;
@@ -13,6 +14,8 @@ public class Player extends Mob {
 	private Sprite sprite;
 	private int anim = 0;
 	private boolean walking = false;
+	
+	private int fireRate = 0;
 	
 	
 	public Player (Keyboard input) {
@@ -26,9 +29,11 @@ public class Player extends Mob {
 		this.y = y;
 		this.input = input;
 		sprite = Sprite.player_forward;
+		fireRate = WizardProjectile.FIRE_RATE;
 	}
 	
 	public void update() {
+		if (fireRate > 0) fireRate --;
 		int xa = 0, ya = 0;
 		if (anim < 7500) anim ++;
 		else anim = 0;
@@ -55,11 +60,13 @@ public class Player extends Mob {
 	}
 	
 	public void updateShooting() {
-		if (Mouse.getButton() == 1) {
+		if (Mouse.getButton() == 1 && fireRate <= 0) {
 			double dx = Mouse.getX() - Game.getWindowWidth() /2;
 			double dy = Mouse.getY() - Game.getWindowHeight() /2;
 			double dir = Math.atan2(dy, dx);
-			shoot(x, y, dir);	}
+			shoot(x, y, dir);	
+			fireRate = WizardProjectile.FIRE_RATE;
+		}
 	}
 	
 	

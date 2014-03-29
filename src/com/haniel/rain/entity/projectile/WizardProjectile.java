@@ -5,12 +5,13 @@ import com.haniel.rain.graphics.Sprite;
 
 public class WizardProjectile extends Projectile{
 
+	public static final int FIRE_RATE = 8; //Higher is slower
+	
 	public WizardProjectile(int x, int y, double dir) {
 		super(x, y, dir);
-		range = random.nextInt(100) + 50;
-		speed = 4;
+		range = random.nextInt(50) + 100;
+		speed = 3;
 		damage = 20;
-		rateOfFire = 15;
 		sprite = Sprite.projectile_wizard;
 		nx = speed * Math.cos(angle);
 		ny = speed * Math.sin(angle);
