@@ -1,7 +1,5 @@
 package com.haniel.rain.entity.mob;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import com.haniel.rain.entity.Entity;
 import com.haniel.rain.entity.projectile.Projectile;

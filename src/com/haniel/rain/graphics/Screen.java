@@ -41,7 +41,7 @@ public class Screen {
 			int ya = y + yp;
 			for (int x = 0;x < tile.sprite.SIZE; x++) {
 				int xa = x + xp;
-				if (xa < tile.sprite.SIZE || xa >= width || ya < 0 || ya >= height) break;
+				if (xa < -tile.sprite.SIZE || xa >= width || ya < 0 || ya >= height) break;
 				if (xa < 0) xa = 0;
 				pixels[xa + ya * width] = tile.sprite.pixels[x + y * tile.sprite.SIZE];
 			}
@@ -57,7 +57,7 @@ public class Screen {
 				int xa = x + xp;
 				if (xa < p.getSpriteSize() || xa >= width || ya < 0 || ya >= height) break;
 				if (xa < 0) xa = 0;
-				int col = p.getSprite().pixels[x + y * p.getSprite().SIZE];
+				int col = p.getSprite().pixels[x + y * p.getSpriteSize()];
 				if (col != 0Xffff00ff) pixels[xa + ya * width] = col; 
 			}
 		}
