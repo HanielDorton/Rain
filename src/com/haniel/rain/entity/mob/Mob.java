@@ -2,6 +2,7 @@ package com.haniel.rain.entity.mob;
 
 
 import com.haniel.rain.entity.Entity;
+import com.haniel.rain.entity.particle.Particle;
 import com.haniel.rain.entity.projectile.Projectile;
 import com.haniel.rain.entity.projectile.WizardProjectile;
 import com.haniel.rain.graphics.Sprite;
@@ -27,9 +28,8 @@ public abstract class Mob extends Entity{
 		if (!collision(xa, ya)) {
 			y += ya;
 			x += xa;
-
-			
-		}
+		} 
+		
 	}
 	
 	public void update() {

@@ -40,7 +40,7 @@ public class Sprite {
 	public static Sprite projectile_wizard = new Sprite(16,0, 0, SpriteSheet.projectile_wizard);
 	
 	//Particle Sprites:
-	public static Sprite particle_normal = new Sprite(3, 0xaaaaaa);
+	public static Sprite particle_normal = new Sprite(1, 0xaaaaaa);
 	
 	public Sprite(int size, int x, int y, SpriteSheet sheet) {
 		SIZE = size;
