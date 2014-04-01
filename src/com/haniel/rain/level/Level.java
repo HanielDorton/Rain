@@ -62,7 +62,6 @@ public class Level {
 			int yt = (((int)y + (int)ya) + c / 2 * size + 2) / 16;
 			if (getTile((int) xt, (int) yt).solid()) solid = true;
 		}
-		
 		return solid;
 	}
 	

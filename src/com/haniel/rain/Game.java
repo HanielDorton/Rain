@@ -13,6 +13,7 @@ import javax.swing.JFrame;
 
 import com.haniel.rain.entity.mob.Player;
 import com.haniel.rain.graphics.Screen;
+import com.haniel.rain.graphics.Sprite;
 import com.haniel.rain.input.Keyboard;
 import com.haniel.rain.input.Mouse;
 import com.haniel.rain.level.Level;
@@ -131,6 +132,9 @@ public class Game extends Canvas implements Runnable{
 		int yScroll = player.y - screen.height / 2;
 		level.render(xScroll, yScroll, screen);
 		player.render(screen);
+		
+		Sprite sprite = new Sprite(80, 80, 0xff00ff);
+		screen.renderSprite(0, 0, sprite, false);
 		
 		for (int i = 0; i< pixels.length; i++) {
 			pixels[i] = screen.pixels[i];
