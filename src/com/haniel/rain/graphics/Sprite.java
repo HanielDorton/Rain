@@ -20,10 +20,7 @@ public class Sprite {
 	public static Sprite spawn_wall1 = new Sprite(16, 0, 1, SpriteSheet.spawn_level);
 	public static Sprite spawn_wall2 = new Sprite(16, 0, 2, SpriteSheet.spawn_level);
 	public static Sprite spawn_floor = new Sprite(16, 1, 1, SpriteSheet.spawn_level);
-	
-	
-	
-	
+
 	//Player Sprites:
 	
 	public static Sprite player_forward = new Sprite(32, 0, 5, SpriteSheet.tiles);
@@ -36,12 +33,14 @@ public class Sprite {
 	public static Sprite player_side_1 = new Sprite(32, 1, 6, SpriteSheet.tiles);
 	public static Sprite player_side_2 = new Sprite(32, 1, 7, SpriteSheet.tiles);
 	
-
 	public static Sprite player_back_1 = new Sprite(32, 2, 6, SpriteSheet.tiles);
 	public static Sprite player_back_2 = new Sprite(32, 2, 7, SpriteSheet.tiles);
 	
-	//Projectile Sprite
+	//Projectile Sprites:
 	public static Sprite projectile_wizard = new Sprite(16,0, 0, SpriteSheet.projectile_wizard);
+	
+	//Particle Sprites:
+	public static Sprite particle_normal = new Sprite(3, 0xaaaaaa);
 	
 	public Sprite(int size, int x, int y, SpriteSheet sheet) {
 		SIZE = size;
