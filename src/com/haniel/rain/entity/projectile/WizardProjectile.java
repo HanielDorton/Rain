@@ -1,6 +1,7 @@
 package com.haniel.rain.entity.projectile;
 
-import com.haniel.rain.entity.particle.Particle;
+import com.haniel.rain.entity.Spawner.ParticleSpawner;
+import com.haniel.rain.entity.Spawner.Spawner;
 import com.haniel.rain.graphics.Screen;
 import com.haniel.rain.graphics.Sprite;
 
@@ -20,9 +21,7 @@ public class WizardProjectile extends Projectile{
 	
 	public void update() {
 		if (level.tileCollision(x, y, nx, ny, 7)) {
-			//Particle p = new Particle((int) x, (int) y, 50, 500);
-			//level.add(p);
-			
+			level.add(new ParticleSpawner((int)x, (int)y, 44, 50, level));
 			remove();
 		}
 		move();

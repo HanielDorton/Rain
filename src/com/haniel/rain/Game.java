@@ -13,7 +13,6 @@ import javax.swing.JFrame;
 
 import com.haniel.rain.entity.mob.Player;
 import com.haniel.rain.graphics.Screen;
-import com.haniel.rain.graphics.Sprite;
 import com.haniel.rain.input.Keyboard;
 import com.haniel.rain.input.Mouse;
 import com.haniel.rain.level.Level;
