@@ -21,7 +21,7 @@ public class WizardProjectile extends Projectile{
 	
 	public void update() {
 		if (level.tileCollision(x, y, nx, ny, 7)) {
-			level.add(new ParticleSpawner((int)x, (int)y, 44, 50, level));
+			level.add(new ParticleSpawner((int)x, (int)y, 80, 50, level));
 			remove();
 		}
 		move();
