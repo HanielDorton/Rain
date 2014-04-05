@@ -16,7 +16,12 @@ public class Player extends Mob {
 	private Sprite sprite;
 	private int anim = 0;
 	private boolean walking = false;
-	private AnimatedSprite test = new AnimatedSprite(SpriteSheet.player_down, 32, 32, 3);
+	private AnimatedSprite down = new AnimatedSprite(SpriteSheet.player_down, 32, 32, 3);
+	private AnimatedSprite up = new AnimatedSprite(SpriteSheet.player_up, 32, 32, 3);
+	private AnimatedSprite left = new AnimatedSprite(SpriteSheet.player_left, 32, 32, 3);
+	private AnimatedSprite right = new AnimatedSprite(SpriteSheet.player_right, 32, 32, 3);
+	
+	private AnimatedSprite animSprite = down;
 	
 	private int fireRate = 0;
 	
@@ -36,15 +41,26 @@ public class Player extends Mob {
 	}
 	
 	public void update() {
-		test.update();
+		if (walking) animSprite.update();
+		else animSprite.setFrame(0);
 		if (fireRate > 0) fireRate --;
 		int xa = 0, ya = 0;
 		if (anim < 7500) anim ++;
 		else anim = 0;
-		if (input.up) ya--;
-		if (input.down) ya++;
-		if (input.left) xa--;
-		if (input.right) xa++;
+		if (input.up)  {
+			animSprite = up;
+			ya--;
+		} else if (input.down) {
+			animSprite = down;
+			ya++;
+		}
+		if (input.left) {
+			animSprite = left;
+			xa--;
+		} else if (input.right) {
+			animSprite = right;
+			xa++;
+		}
 		if (xa != 0 || ya != 0) {
 			move (xa, ya);
 			walking = true;
@@ -76,7 +92,7 @@ public class Player extends Mob {
 	
 	public void render(Screen screen) {
 		int flip = 0;
-		if (dir == 0) {
+	/*	if (dir == 0) {
 			sprite = Sprite.player_forward;
 			if (walking){
 				if (anim % 20 > 10) {
@@ -109,7 +125,7 @@ public class Player extends Mob {
 		}
 		if (dir == 3) {
 			sprite = Sprite.player_side;
-			flip = 1;
+			//flip = 1;
 			if (walking){
 				if (anim % 20 > 10) {
 					sprite = Sprite.player_side_1;
@@ -117,8 +133,8 @@ public class Player extends Mob {
 					sprite = Sprite.player_side_2;
 				}
 			}
-		}
-		sprite = test.getSprite();
+		}*/
+		sprite = animSprite.getSprite();
 		screen.renderPlayer(x-16, y-16, sprite, flip);
 	}
 }
