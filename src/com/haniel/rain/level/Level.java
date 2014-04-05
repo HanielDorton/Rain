@@ -20,6 +20,8 @@ public class Level {
 	private List<Entity> entities = new ArrayList<Entity>();
 	private List<Projectile> projectiles = new ArrayList<Projectile>();
 	private List<Particle> particles = new ArrayList<Particle>();
+	public List<Entity> topLayer = new ArrayList<Entity>();
+	
 	
 	public static Level spawn = new SpawnLevel("/levels/spawn.png");
 	
