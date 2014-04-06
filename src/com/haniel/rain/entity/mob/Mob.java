@@ -2,9 +2,9 @@ package com.haniel.rain.entity.mob;
 
 
 import com.haniel.rain.entity.Entity;
-import com.haniel.rain.entity.particle.Particle;
 import com.haniel.rain.entity.projectile.Projectile;
 import com.haniel.rain.entity.projectile.WizardProjectile;
+import com.haniel.rain.graphics.Screen;
 import com.haniel.rain.graphics.Sprite;
 
 public abstract class Mob extends Entity{
@@ -32,8 +32,7 @@ public abstract class Mob extends Entity{
 		
 	}
 	
-	public void update() {
-	}
+	public abstract void update();
 	
 	protected void shoot(int x, int y, double dir) {
 		//dir *= 180 / Math.PI;
@@ -52,7 +51,7 @@ public abstract class Mob extends Entity{
 		return solid;
 	}
 	
-	public void render() {
+	public void render(Screen screen) {
 	}
 
 }

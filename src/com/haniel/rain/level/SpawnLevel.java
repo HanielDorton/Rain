@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import com.haniel.rain.entity.mob.Dummy;
 import com.haniel.rain.level.tile.Tile;
 
 public class SpawnLevel extends Level{
@@ -24,6 +25,7 @@ public class SpawnLevel extends Level{
 			e.printStackTrace();
 			System.out.println("Exception! Could not load level file");		
 		}
+		add(new Dummy(20, 55));
 	}
 	
 

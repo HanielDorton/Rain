@@ -1,10 +1,9 @@
 package com.haniel.rain.entity.Spawner;
 
 import com.haniel.rain.entity.Entity;
-import com.haniel.rain.entity.particle.Particle;
 import com.haniel.rain.level.Level;
 
-public class Spawner extends Entity{
+public abstract class Spawner extends Entity{
 
 	public enum Type {
 		MOB, PARTICLE;
