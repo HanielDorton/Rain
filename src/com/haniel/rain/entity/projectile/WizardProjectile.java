@@ -8,7 +8,7 @@ public class WizardProjectile extends Projectile{
 
 	public static final int FIRE_RATE = 8; //Higher is slower
 	
-	public WizardProjectile(int x, int y, double dir) {
+	public WizardProjectile(double x, double y, double dir) {
 		super(x, y, dir);
 		range = random.nextInt(50) + 100;
 		speed = 3;

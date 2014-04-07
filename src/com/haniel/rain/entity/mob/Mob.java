@@ -28,16 +28,34 @@ public abstract class Mob extends Entity{
 		if (ya > 0) dir = Direction.DOWN;
 		if (ya < 0) dir = Direction.UP;
 		
-		for (int y = 0; y < Math.abs(ya); y++) {
-			if (!collision(xa, abs(ya))) {
-				this.y += abs(ya);
-			} 
+		while (xa != 0) {
+			if(Math.abs(xa) > 1) {
+				if (!collision(abs(xa), ya)) {
+					this.x += abs(xa);
+				}
+				xa -= abs(xa);
+			} else {
+				if (!collision(abs(xa), ya)) {
+					this.x += xa;
+				}	
+				xa = 0;
+			}
 		}
-		for (int x = 0; x < Math.abs(xa); x++) {
-			if (!collision(abs(xa), ya)) {
-				this.x += abs(xa);
-			} 
+		
+		while (ya != 0) {
+			if(Math.abs(ya) > 1) {
+				if (!collision(xa, abs(ya))) {
+					this.y += abs(ya);
+				}
+				ya -= abs(ya);
+			} else {
+				if (!collision(xa, abs(ya))) {
+					this.y += ya;
+				}	
+				ya = 0;
+			}
 		}
+		
 	}
 	
 	private int abs(double value) {
@@ -47,7 +65,7 @@ public abstract class Mob extends Entity{
 	
 	public abstract void update();
 	
-	protected void shoot(int x, int y, double dir) {
+	protected void shoot(double x, double y, double dir) {
 		//dir *= 180 / Math.PI;
 		Projectile p = new WizardProjectile(x, y, dir);
 		level.add(p);

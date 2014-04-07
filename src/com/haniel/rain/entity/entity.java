@@ -8,7 +8,7 @@ import com.haniel.rain.level.Level;
 
 public class Entity {
 	
-	protected int x, y;
+	protected double x, y;
 	protected Sprite sprite;
 	private boolean removed = false;
 	protected Level level;
@@ -29,7 +29,7 @@ public class Entity {
 	}
 	
 	public void render(Screen screen) {
-		if (sprite != null) screen.renderSprite(x, y, sprite, true);
+		if (sprite != null) screen.renderSprite((int)x, (int)y, sprite, true);
 	}
 	
 	public void remove() {
@@ -37,11 +37,11 @@ public class Entity {
 		removed = true;
 	}
 	
-	public int getX() {
+	public double getX() {
 		return x;
 	}
 	
-	public int getY() {
+	public double getY() {
 		return y;
 	}
 	

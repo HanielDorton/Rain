@@ -1,6 +1,5 @@
 package com.haniel.rain.entity.Spawner;
 
-import com.haniel.rain.entity.Spawner.Spawner.Type;
 import com.haniel.rain.entity.particle.Particle;
 import com.haniel.rain.level.Level;
 
