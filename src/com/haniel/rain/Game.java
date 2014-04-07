@@ -13,7 +13,6 @@ import javax.swing.JFrame;
 
 import com.haniel.rain.entity.mob.Player;
 import com.haniel.rain.graphics.Screen;
-import com.haniel.rain.graphics.SpriteSheet;
 import com.haniel.rain.input.Keyboard;
 import com.haniel.rain.input.Mouse;
 import com.haniel.rain.level.Level;
@@ -52,7 +51,7 @@ public class Game extends Canvas implements Runnable{
 		level = Level.spawn;
 		TileCoordinate player_spawn = new TileCoordinate(23, 62);
 		player = new Player(player_spawn.x(), player_spawn.y(), key);
-		player.init(level);
+		level.add(player);
 		
 		addKeyListener(key);
 		
@@ -117,7 +116,6 @@ public class Game extends Canvas implements Runnable{
 	
 	public void update(){
 		key.update();
-		player.update();
 		level.update();
 	}
 	
@@ -128,10 +126,9 @@ public class Game extends Canvas implements Runnable{
 			return;
 		}
 		screen.clear();
-		int xScroll = player.x - screen.width / 2;
-		int yScroll = player.y - screen.height / 2;
+		int xScroll = player.getX() - screen.width / 2;
+		int yScroll = player.getY() - screen.height / 2;
 		level.render(xScroll, yScroll, screen);
-		player.render(screen);
 		
 		for (int i = 0; i< pixels.length; i++) {
 			pixels[i] = screen.pixels[i];

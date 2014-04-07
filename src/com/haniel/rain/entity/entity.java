@@ -8,7 +8,7 @@ import com.haniel.rain.level.Level;
 
 public class Entity {
 	
-	public int x, y;
+	protected int x, y;
 	protected Sprite sprite;
 	private boolean removed = false;
 	protected Level level;
@@ -35,6 +35,14 @@ public class Entity {
 	public void remove() {
 		//Remove from level
 		removed = true;
+	}
+	
+	public int getX() {
+		return x;
+	}
+	
+	public int getY() {
+		return y;
 	}
 	
 	public Sprite getSprite() {
