@@ -2,6 +2,8 @@ package com.haniel.rain.graphics;
 
 import java.util.Random;
 
+import com.haniel.rain.entity.mob.Chaser;
+import com.haniel.rain.entity.mob.Mob;
 import com.haniel.rain.entity.projectile.Projectile;
 import com.haniel.rain.level.tile.Tile;
 
@@ -92,7 +94,23 @@ public class Screen {
 		}
 	}
 
-
+	public void renderMob(int xp, int yp, Mob mob) {
+		xp -= xOffset; 
+		yp -= yOffset;
+		for (int y = 0; y < 32; y++) {
+			int ya = y + yp;
+			int ys = y;
+			for (int x = 0;x < 32; x++) {
+				int xa = x + xp;
+				int xs = x;
+				if (xa < -32 || xa >= width || ya < 0 || ya >= height) break;
+				if (xa < 0) xa = 0;
+				int col = mob.getSprite().pixels[xs + ys * 32];
+				if ((mob instanceof Chaser) && col == 0xff472bbf) col = 0xffba0015; 
+				if (col != 0xFFFF00FF) pixels[xa + ya * width] = col;
+			}
+		}
+	}
 	
 	public void renderMob(int xp, int yp, Sprite sprite, int flip) {
 		xp -= xOffset;

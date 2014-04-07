@@ -9,7 +9,7 @@ import com.haniel.rain.level.Level;
 public class Entity {
 	
 	public int x, y;
-	private Sprite sprite;
+	protected Sprite sprite;
 	private boolean removed = false;
 	protected Level level;
 	protected final Random random = new Random();
@@ -35,6 +35,10 @@ public class Entity {
 	public void remove() {
 		//Remove from level
 		removed = true;
+	}
+	
+	public Sprite getSprite() {
+		return sprite;
 	}
 	
 	public boolean isRemoved() {

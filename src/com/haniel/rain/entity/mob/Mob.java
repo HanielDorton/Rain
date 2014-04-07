@@ -5,11 +5,9 @@ import com.haniel.rain.entity.Entity;
 import com.haniel.rain.entity.projectile.Projectile;
 import com.haniel.rain.entity.projectile.WizardProjectile;
 import com.haniel.rain.graphics.Screen;
-import com.haniel.rain.graphics.Sprite;
 
 public abstract class Mob extends Entity{
 	
-	protected Sprite sprite;
 	protected boolean moving = false;
 	protected boolean walking = false;
 	

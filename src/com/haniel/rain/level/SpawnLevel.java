@@ -2,11 +2,10 @@ package com.haniel.rain.level;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 
+import com.haniel.rain.entity.mob.Chaser;
 import com.haniel.rain.entity.mob.Dummy;
-import com.haniel.rain.level.tile.Tile;
 
 public class SpawnLevel extends Level{
 	
@@ -25,7 +24,10 @@ public class SpawnLevel extends Level{
 			e.printStackTrace();
 			System.out.println("Exception! Could not load level file");		
 		}
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 5; i++) {
+			add(new Chaser(20, 55));
+		}
+		for (int i = 0; i < 5; i++) {
 			add(new Dummy(20, 55));
 		}
 		
