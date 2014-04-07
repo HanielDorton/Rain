@@ -31,10 +31,10 @@ public class Chaser extends Mob{
 		List<Player> players = level.getPlayers(this, 40);
 		if (players.size() > 0) {
 			Player player = players.get(0);
-			if (x < player.getX()) xa++;
-			if (x > player.getX()) xa--;
-			if (y < player.getY()) ya++;
-			if (y > player.getY()) ya--;
+			if (x < player.getX()) xa = 1;
+			if (x > player.getX()) xa = -1;
+			if (y < player.getY()) ya = 1;
+			if (y > player.getY()) ya = -1;
 		}
 		if (xa != 0 || ya != 0) {
 			move (xa, ya);
@@ -63,7 +63,7 @@ public class Chaser extends Mob{
 			animSprite = right;
 		}
 		if (xa != 0 || ya != 0) {
-			move (xa, ya);
+			//move (xa, ya);
 			walking = true;
 		} else {
 			walking = false;

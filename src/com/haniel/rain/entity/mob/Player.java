@@ -3,7 +3,6 @@ package com.haniel.rain.entity.mob;
 import java.util.List;
 
 import com.haniel.rain.Game;
-import com.haniel.rain.entity.Entity;
 import com.haniel.rain.entity.projectile.Projectile;
 import com.haniel.rain.entity.projectile.WizardProjectile;
 import com.haniel.rain.graphics.AnimatedSprite;
@@ -49,27 +48,26 @@ public class Player extends Mob {
 		int xa = 0, ya = 0;
 		if (input.up)  {
 			animSprite = up;
-			ya--;
+			ya -= 2;
 		} else if (input.down) {
 			animSprite = down;
-			ya++;
+			ya += 2;
 		}
 		if (input.left) {
 			animSprite = left;
-			xa--;
+			xa -= 2;
 		} else if (input.right) {
 			animSprite = right;
-			xa++;
+			xa += 2;
 		}
 		if (xa != 0 || ya != 0) {
-			move (xa, ya);
+			move(xa, ya);
 			walking = true;
 		} else {
 			walking = false;
 		}
 		clear();
 		updateShooting();
-		
 	}
 	
 	private void clear() {
