@@ -1,5 +1,7 @@
 package com.haniel.rain.entity.mob;
 
+import java.util.List;
+
 import com.haniel.rain.graphics.AnimatedSprite;
 import com.haniel.rain.graphics.Screen;
 import com.haniel.rain.graphics.Sprite;
@@ -26,21 +28,20 @@ public class Chaser extends Mob{
 	private void move() {
 		xa = 0;
 		ya = 0;
-		Player player = level.getClientPlayer();
-		
-		if (x < player.getX()) xa++;
-		if (x > player.getX()) xa--;
-		if (y < player.getY()) ya++;
-		if (y > player.getY()) ya--;
-		
-		
+		List<Player> players = level.getPlayers(this, 40);
+		if (players.size() > 0) {
+			Player player = players.get(0);
+			if (x < player.getX()) xa++;
+			if (x > player.getX()) xa--;
+			if (y < player.getY()) ya++;
+			if (y > player.getY()) ya--;
+		}
 		if (xa != 0 || ya != 0) {
 			move (xa, ya);
 			walking = true;
 		} else {
 			walking = false;
 		}
-		
 	}
 
 	public void update() {

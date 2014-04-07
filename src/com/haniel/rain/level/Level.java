@@ -144,6 +144,39 @@ public class Level {
 		return players.get(0);
 	}
 	
+	public List<Entity> getEntities(Entity e, int radius) {
+		List<Entity> result = new ArrayList<Entity>();
+		int ex = e.getX();
+		int ey = e.getY();
+		for (int i = 0; i < entities.size(); i++) {
+			Entity entity = entities.get(i);
+			int x = entity.getX();
+			int y = entity.getY();
+			
+			int dx = Math.abs(x - ex);
+			int dy = Math.abs(y - ey);
+			double distance = Math.sqrt((dx * dx) + (dy * dy));
+			if (distance <= radius) result.add(entity);
+		}
+		return result;
+	}
+	
+	public List<Player> getPlayers(Entity e, int radius) {
+		List<Player> result = new ArrayList<Player>();
+		int ex = e.getX();
+		int ey = e.getY();
+		for (int i = 0; i < players.size(); i++) {
+			Player player = players.get(i);
+			int x = player.getX();
+			int y = player.getY();			
+			int dx = Math.abs(x - ex);
+			int dy = Math.abs(y - ey);
+			double distance = Math.sqrt((dx * dx) + (dy * dy));
+			if (distance <= radius) result.add(player);
+		}
+		return result;
+	}
+	
 	// Grass = 0xFF00FF00
 	// Flower = 0xFFFFFF00
 	// Rock = 0xFF7F7F00
