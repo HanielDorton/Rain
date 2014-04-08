@@ -8,7 +8,7 @@ import com.haniel.rain.level.Level;
 
 public class Entity {
 	
-	protected double x, y;
+	protected int x, y;
 	protected Sprite sprite;
 	private boolean removed = false;
 	protected Level level;
@@ -37,11 +37,11 @@ public class Entity {
 		removed = true;
 	}
 	
-	public double getX() {
+	public int getX() {
 		return x;
 	}
 	
-	public double getY() {
+	public int getY() {
 		return y;
 	}
 	

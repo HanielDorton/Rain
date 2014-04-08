@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.haniel.rain.entity.mob.Chaser;
 import com.haniel.rain.entity.mob.Mob;
+import com.haniel.rain.entity.mob.Star;
 import com.haniel.rain.entity.projectile.Projectile;
 import com.haniel.rain.level.tile.Tile;
 
@@ -106,7 +107,8 @@ public class Screen {
 				if (xa < -32 || xa >= width || ya < 0 || ya >= height) break;
 				if (xa < 0) xa = 0;
 				int col = mob.getSprite().pixels[xs + ys * 32];
-				if ((mob instanceof Chaser) && col == 0xff472bbf) col = 0xffba0015; 
+				if ((mob instanceof Chaser) && col == 0xff472bbf) col = 0xffba0015;
+				if ((mob instanceof Star) && col == 0xff472bbf) col = 0xffE8E83A;
 				if (col != 0xFFFF00FF) pixels[xa + ya * width] = col;
 			}
 		}
