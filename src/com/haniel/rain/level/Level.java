@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.haniel.rain.entity.Entity;
-import com.haniel.rain.entity.Spawner.Spawner;
 import com.haniel.rain.entity.mob.Player;
 import com.haniel.rain.entity.particle.Particle;
 import com.haniel.rain.entity.projectile.Projectile;
@@ -80,8 +79,8 @@ public class Level {
 		return projectiles;
 	}
 	
-	private void time() {
-	}
+	//private void time() {
+	//}
 	
 	public boolean tileCollision (int x, int y, int size, int xOffset, int yOffset) {
 		boolean solid = false;
