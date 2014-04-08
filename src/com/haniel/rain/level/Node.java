@@ -8,6 +8,9 @@ public class Node {
 	public Node parent;
 	public double fCost, gCost, hCost;
 	
+	//gcost is cost from start
+	//h cost is estimate cost from start to finish
+	
 	public Node(Vector2i tile, Node parent, double gCost, double hCost){
 		this.tile = tile;
 		this.parent = parent;
