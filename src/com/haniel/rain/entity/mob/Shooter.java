@@ -1,10 +1,13 @@
 package com.haniel.rain.entity.mob;
 
-import com.haniel.rain.entity.mob.Mob.Direction;
+import java.util.List;
+
+import com.haniel.rain.entity.Entity;
 import com.haniel.rain.graphics.AnimatedSprite;
 import com.haniel.rain.graphics.Screen;
 import com.haniel.rain.graphics.Sprite;
 import com.haniel.rain.graphics.SpriteSheet;
+import com.haniel.rain.util.Vector2i;
 
 public class Shooter extends Mob{
 	
@@ -56,14 +59,26 @@ public class Shooter extends Mob{
 		} else {
 			walking = false;
 		}
+		List<Entity> entities = level.getEntities(this, 50);
+		entities.add(level.getClientPlayer());
 		
+		double min = 0;
+		Entity closest = null;
+		for (int i = 0; i < entities.size(); i++) {
+			Entity e = entities.get(i);
+			double distance = Vector2i.getDistance(new Vector2i(x, y) , new Vector2i(e.getX(), e.getY()));
+			if (i == 0 || distance < min) {
+				min = distance;
+				closest = e;
+			}
+		}
 		
-		Player p = level.getClientPlayer();
-		double dx = p.getX() - x;
-		double dy = p.getY() - y;
-		double dir = Math.atan2(dy, dx);
-		shoot(x, y, dir);
-
+		if (closest != null) {
+			double dx = closest.getX() - x;
+			double dy = closest.getY() - y;
+			double dir = Math.atan2(dy, dx);
+			shoot(x, y, dir);
+		}
 		
 	}
 	

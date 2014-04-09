@@ -29,9 +29,11 @@ public class SpawnLevel extends Level{
 		//add(new Chaser(20, 60));
 		
 		//add(new Star(21, 33));
-		//for (int i = 0; i < 5; i++) {
-		//add(new Dummy(20, 55));
+		for (int i = 0; i < 5; i++) {
+			  add(new Dummy(20, 55));
+		}
 		add(new Shooter(20, 55));
+		add(new Shooter(20, 48));
 	}
 		
 	

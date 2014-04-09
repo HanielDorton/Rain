@@ -44,7 +44,7 @@ public class Player extends Mob {
 		else animSprite.setFrame(0);
 		if (fireRate > 0) fireRate --;
 		double xa = 0, ya = 0;
-		double speed = 1.5;
+		double speed = 2;
 		if (input.up)  {
 			animSprite = up;
 			ya -= speed;
