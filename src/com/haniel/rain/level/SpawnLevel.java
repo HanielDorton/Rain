@@ -6,6 +6,7 @@ import javax.imageio.ImageIO;
 
 import com.haniel.rain.entity.mob.Chaser;
 import com.haniel.rain.entity.mob.Dummy;
+import com.haniel.rain.entity.mob.Shooter;
 import com.haniel.rain.entity.mob.Star;
 
 public class SpawnLevel extends Level{
@@ -25,15 +26,14 @@ public class SpawnLevel extends Level{
 			e.printStackTrace();
 			System.out.println("Exception! Could not load level file");		
 		}
-		for (int i = 0; i < 1; i++) {
-			add(new Chaser(20, 60));
-		}
-		add(new Star(21, 33));
-		for (int i = 0; i < 5; i++) {
-			add(new Dummy(20, 55));
-		}
+		//add(new Chaser(20, 60));
 		
+		//add(new Star(21, 33));
+		//for (int i = 0; i < 5; i++) {
+		//add(new Dummy(20, 55));
+		add(new Shooter(20, 55));
 	}
+		
 	
 
 	protected void generateLevel() {

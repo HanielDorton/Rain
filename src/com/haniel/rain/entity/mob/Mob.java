@@ -66,7 +66,6 @@ public abstract class Mob extends Entity{
 	public abstract void update();
 	
 	protected void shoot(double x, double y, double dir) {
-		//dir *= 180 / Math.PI;
 		Projectile p = new WizardProjectile(x, y, dir);
 		level.add(p);
 	}
