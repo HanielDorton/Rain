@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import com.haniel.rain.entity.Entity;
+import com.haniel.rain.entity.Spawner.Spawner;
 import com.haniel.rain.entity.mob.Player;
 import com.haniel.rain.entity.particle.Particle;
 import com.haniel.rain.entity.projectile.Projectile;
@@ -130,6 +131,7 @@ public class Level {
 	
 	public void add(Entity e) {
 		e.init(this);
+		if (e instanceof Spawner) return; //particle spawners were getting added to entities list
 		if (e instanceof Particle) {
 			particles.add((Particle)e);
 		} else if (e instanceof Projectile) {
