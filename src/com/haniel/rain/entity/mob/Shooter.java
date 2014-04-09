@@ -7,6 +7,7 @@ import com.haniel.rain.graphics.AnimatedSprite;
 import com.haniel.rain.graphics.Screen;
 import com.haniel.rain.graphics.Sprite;
 import com.haniel.rain.graphics.SpriteSheet;
+import com.haniel.rain.util.Debug;
 import com.haniel.rain.util.Vector2i;
 
 public class Shooter extends Mob{
@@ -56,7 +57,7 @@ public class Shooter extends Mob{
 			animSprite = right;
 		}
 		if (xa != 0 || ya != 0) {
-			//move (xa, ya);
+			move (xa, ya);
 			walking = true;
 		} else {
 			walking = false;
@@ -106,6 +107,8 @@ public class Shooter extends Mob{
 	}
 	
 	public void render(Screen screen) {
+		Debug.drawRect(screen, 17*16, 57 *16, 40, 40, true);
+		sprite = animSprite.getSprite();
 		screen.renderMob(x - 16, y - 16, this);
 	}
 
